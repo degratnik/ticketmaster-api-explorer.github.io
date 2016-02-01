@@ -1,0 +1,453 @@
+/**
+ * Reset some basic elements
+ */
+body, h1, h2, h3, h4, h5, h6,
+p, blockquote, pre, hr,
+dl, dd, ol, ul, figure {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+/**
+ * Basic styling
+ */
+body {
+    font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
+    color: $text-color;
+    background-color: $background-color;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-feature-settings: "kern" 1;
+    -moz-font-feature-settings: "kern" 1;
+    -o-font-feature-settings: "kern" 1;
+    font-feature-settings: "kern" 1;
+    font-kerning: normal;
+    overflow-x: hidden;
+}
+
+iframe{
+  border: none;
+  position: relative;
+}
+
+/**
+ * Set `margin-bottom` to maintain vertical rhythm
+ */
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+ul, ol, dl, figure,
+%vertical-rhythm {
+    margin-top: $base-margin;
+    margin-bottom: $base-margin;
+}
+
+.double-margin {
+  margin-top: $base-margin * 2;
+  margin-bottom: $base-margin * 2;
+}
+
+.double-margin-top {
+  margin-top: $base-margin * 2;
+}
+
+.double-margin-bottom {
+  margin-bottom: $base-margin * 2;
+}
+
+.x3-margin{
+  margin-top: $base-margin * 3;
+  margin-bottom: $base-margin * 3;
+}
+
+.x3-margin-top {
+  margin-top: $base-margin * 2;
+}
+
+.x3-margin-bottom {
+  margin-bottom: $base-margin * 2;
+}
+
+.black{
+  color: $n1;
+}
+.white{
+  color: $white;
+}
+.blue{
+  color: $blue;
+}
+.red{
+  color: $secondary-color1;
+}
+/**
+ * Images
+ */
+img {
+    max-width: 100%;
+    vertical-align: inherit;
+}
+
+
+
+/**
+ * Figures
+ */
+figure > img {
+    display: block;
+}
+
+figcaption {
+    font-size: $small-font-size;
+}
+
+
+
+/**
+ * Lists
+ */
+li {
+    font-family: $font-body;
+    list-style: none;
+    > ul,
+    > ol {
+         margin-bottom: 0;
+    }
+}
+
+.content {
+  ul>li {
+    list-style: inside disc;
+  }
+  ol>li {
+    list-style: inside decimal;
+  }
+}
+
+
+/**
+ * Headings
+ */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: $bold-font-weight;
+}
+
+
+
+/**
+ * Links
+ */
+a {
+    color: $brand-color;
+    text-decoration: none;
+    font-family: $font-body;
+
+    &:visited {
+        //color: darken($p1b, 15%);
+    }
+
+    &:hover {
+        color: $p1b;
+        text-decoration: none;
+    }
+}
+p{
+    font-family: $font-body;
+}
+
+/**
+ * Blockquotes
+ */
+blockquote {
+    color: $grey-color;
+    border-left: 4px solid $grey-color-light;
+    padding-left: $spacing-unit / 2;
+    font-size: 18px;
+    letter-spacing: -1px;
+    font-style: italic;
+
+    > :last-child {
+        margin-bottom: 0;
+    }
+}
+
+
+
+/**
+ * Code formatting
+ */
+pre,
+code {
+    font-size: $size-code;
+    border: 0;
+    border-radius: 0;
+    background-color: $code-background-color;
+    font-family: $font-code;
+}
+
+code {
+    padding: 1px 5px;
+}
+
+pre {
+    padding: 8px 12px;
+    overflow-x: auto;
+
+    > code {
+        border: 0;
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+
+
+
+/**
+ * Wrapper
+ */
+.wrapper {
+    max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit} * 2));
+    max-width:         calc(#{$content-width} - (#{$spacing-unit} * 2));
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: $spacing-unit;
+    padding-left: $spacing-unit;
+    @extend %clearfix;
+
+    @include media-query($on-laptop) {
+        max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit}));
+        max-width:         calc(#{$content-width} - (#{$spacing-unit}));
+        padding-right: $spacing-unit / 2;
+        padding-left: $spacing-unit / 2;
+    }
+}
+
+
+
+/**
+ * Clearfix
+ */
+%clearfix {
+
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+
+
+/**
+ * Icons
+ */
+.icon {
+
+    > svg {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        vertical-align: middle;
+
+        path {
+            fill: $grey-color;
+        }
+    }
+}
+
+/**
+  * Basic Structure Elements
+  */
+.row {
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+.body-wrapper {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.row-container {
+  max-width: 1170px;
+  margin: auto;
+}
+
+.maincontent {
+  margin-top: $maincontent-margin;
+}
+
+.clearfix {
+  clear: both;
+}
+
+@media (max-width: 1199px) {
+  .row-container {
+    padding: 0 23px;
+  }
+}
+/**/
+/*bootstrap btn*/
+.btn {
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857;
+  border-radius: 4px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+.btn:focus, .btn.focus, .btn:active:focus, .btn:active.focus, .btn.active:focus, .btn.active.focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px; }
+.btn:hover, .btn:focus, .btn.focus {
+  color: #333;
+  text-decoration: none; }
+.btn:active, .btn.active {
+  outline: 0;
+  background-image: none;
+  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125); }
+.btn.disabled, .btn[disabled], fieldset[disabled] .btn {
+  cursor: not-allowed;
+  opacity: 0.65;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+  box-shadow: none; }
+
+/*btn bootstrap end*/
+
+.btn-default{
+  border: 2px solid $n3;
+  font-family: $font-bold-p;
+  padding: 10px 40px;
+  color: $n3;
+  &:hover,
+  :active,
+  :focus{
+    color: $n1;
+    background-color: $white;
+    outline: none;
+  }
+}
+
+.gray{
+  color: $n2-grey-color;
+}
+
+.checked-td:after {
+  /*
+  font-family: "fontawesome";
+  content: "\f00c";
+  */
+  content: "";
+  display: inline-block;
+  width: 13.2px;
+  height: 9.9px;
+  background-image: url('/assets/img/ic-chekmark.svg');
+  color: $apple-green;
+}
+
+
+@mixin inline-list($top){
+  position: relative;
+  display: inline;
+  &:not(:last-child){
+    margin-right: 15px;
+    &:after{
+      content: '';
+      position: absolute;
+      border: 1px solid;
+      width: 2px;
+      height: 2px;
+      right: -10px;
+      top: $top;
+    }
+  }
+}
+
+@mixin aside-menu-bg($percent){
+  background: -moz-linear-gradient(left, $aside-menu-background 0%, $aside-menu-background $percent, $white $percent, $white 100%);
+  background: -webkit-linear-gradient(left,$aside-menu-background 0%, $aside-menu-background $percent, $white $percent, $white 100%);
+  background: linear-gradient(to right,$aside-menu-background 0%, $aside-menu-background $percent, $white $percent, $white 100%);
+}
+
+@mixin no-select() {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+// this supports visualizing fixed elements in iOS devices - important!
+@mixin transform-3d(){
+  @media (-webkit-min-device-pixel-ratio: 2){
+    -webkit-transform: translate3d(0px,0px,0px);
+  }
+}
+
+@mixin component-menu-bg-top(){
+  background: url('../assets/img/slice-bottom-right-menu.svg');
+  @media #{$max-1200}{
+    background: url('../assets/img/slice-bottom-right-menu-tablet.svg');
+  }
+  @media #{$max-768}{
+    background: url('../assets/img/slice-bottom-right-menu-mobile.svg');
+  }
+}
+
+@mixin component-menu-bg-bottom(){
+  background: url('../assets/img/slice-top-right-menu.svg');
+}
+
+@mixin tm-transition(){
+  -webkit-transition: all 300ms cubic-bezier(0.33, 0.01, 0.32, 0.48);
+  -moz-transition: all 300ms cubic-bezier(0.33, 0.01, 0.32, 0.48);
+  -ms-transition: all 300ms cubic-bezier(0.33, 0.01, 0.32, 0.48);
+  -o-transition: all 300ms cubic-bezier(0.33, 0.01, 0.32, 0.48);
+  transition: all 300ms cubic-bezier(0.33, 0.01, 0.32, 0.48);
+}
+
+@media (max-width: 767px) {
+  .xs-center{
+    text-align: center;
+    li{
+      @include inline-list(10px);
+    }
+  }
+  .xs-border-bottom{
+    position: relative;
+    margin-bottom: 76px;
+    &:not(:last-child):after{
+      content: '';
+      width: 90%;
+      position: absolute;
+      border-bottom: 1px solid $borderGrayColor;
+      left: 5%;
+      bottom: 0;
+    }
+    img{
+      max-height: 40px !important;
+    }
+  }
+}
+
+.documentation .copy-btn.copied {
+  background-color: #FFF;
+  background-position-x: -2px;
+  background-position-y: -2px;
+  background-image: url("/assets/img/products-and-docs/ic-copied.svg");
+}
