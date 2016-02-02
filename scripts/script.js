@@ -63,9 +63,11 @@ Object.byString = function(o, s) {
 
     // builds page according to base data
     var buildPageLayout = function(){
+        var first = true;
         //render droppowns within navigation bar
         for (apiName in base) {
-            addApiDropdown(apiName);
+            addApiDropdown(apiName, first);
+            first = false;
         }
         //set dropdown event listeners
         setDropdownListeners();
@@ -84,9 +86,11 @@ Object.byString = function(o, s) {
     // sets listeners for api dropdowns
     var setDropdownListeners = function(){
         $('.nav').on('click', function(e){
-            var target = $(e.target);
+            var target = $(e.target).parent();
             if (target.hasClass('select-default-method')){
                 e.preventDefault();
+                $('.dropdown-toggle').removeClass('selected-group');
+                target.closest('.api-dropdown').find('.dropdown-toggle').addClass('selected-group');
                 renderPrimaryColumn(base[target.attr('api-name')][target.attr('method-name')]);
                 selectedMethod = base[target.attr('api-name')][target.attr('method-name')];
             }
@@ -115,16 +119,16 @@ Object.byString = function(o, s) {
     };
 
     // adds API dropdpwn to navigation bar
-    var addApiDropdown = function(apiName){
+    var addApiDropdown = function(apiName, selected){
         var dropDown = $('<li class="dropdown api-dropdown"></li>'),
-            button = $('<button class="btn btn-default dropdown-toggle" type="button" id="'
-                    + apiName + '-dropdown' + '" data-toggle="dropdown">' + apiName + '</button>'),
+            button = $('<button class="dropdown-toggle' + (selected ? ' selected-group' : '') + '" type="button" id="'
+                    + apiName + '-dropdown' + '" data-toggle="dropdown"><h4>' + apiName + '</h4></button>'),
             caret = $('<span class="caret"></span>'),
             ul = $('<ul class="dropdown-menu" role="menu" aria-labelledby="' + apiName + '-dropdown' +  '">');
 
         for (method in base[apiName]) {
             var li = $('<li role="presentation"><a class="select-default-method" api-name="'
-                    + apiName + '" method-name="' + method + '" role="menuitem" tabindex="-1" href="#">' + base[apiName][method].name +  '</a></li>');
+                    + apiName + '" method-name="' + method + '" role="menuitem" tabindex="-1" href="#"><h3>' + base[apiName][method].name +  '</h3></a></li>');
             ul.append(li);
         }
 

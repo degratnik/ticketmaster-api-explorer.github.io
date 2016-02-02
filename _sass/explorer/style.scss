@@ -15,7 +15,65 @@
 
   .api-dropdown{
     margin-top: 5px;
-    margin-right: 10px;
+    margin-right: 48px;
+    .dropdown-menu{
+      background-color: $n3;
+      li{
+        margin: 10px 0;
+        a{
+          h3{
+            font-family: $font-body;
+            color: $white;
+            text-align: left;
+            text-transform: capitalize;
+            margin: 0;
+          }
+          &:hover{
+            background: $n3;
+            h3{
+              color: $p1;
+            }
+          }
+        }
+      }
+    }
+    &.open{
+      .dropdown-toggle {
+        .caret {
+          margin-top: 15px;
+          -ms-transform: rotate(180deg);
+          -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+        }
+      }
+    }
+    .dropdown-toggle{
+      background: none;
+      border: none;
+      text-transform: uppercase;
+      padding-left: 0;
+      .caret{
+        background: url("../../assets/img/ic-shevron-down-gray.svg") no-repeat;
+        @include tm-transition();
+        border: none;
+        width: 16px;
+        height: 16px;
+        margin-top: 22px;
+        margin-left: 24px;
+      }
+      &.selected-group{
+        h4 {
+          color: $p1;
+        }
+      }
+      h4{
+        float: left;
+        color: $n3;
+        &:hover{
+          color: $p1;
+        }
+      }
+    }
   }
 
   #selected-method-name{
@@ -47,14 +105,15 @@
   }
 
   .list-group{
-    border: 2px solid $n3;
-    border-radius: 7px;
+    border: 1px solid $n2-grey-color;
+    border-radius: 5px;
     .list-group-item {
       border: none;
+      outline: none;
       &.active{
         font-size: $font-size-h3;
         font-weight: bold;
-        background-color: $n3 !important;
+        background-color: $n2-grey-color !important;
         padding-bottom: 13px;
       }
       &.expandable{
@@ -77,7 +136,7 @@
         }
         &.selected{
           background-color: $p1;
-          margin: -3px -2px 0 -2px;
+          margin: -3px -1px 0;
           color: $white;
           &:before{
             background: url('../../assets/img/ic-shevron-right-white.svg') no-repeat;
@@ -110,6 +169,12 @@
 }
 
 //slider customization
-.slick-slide {
-  padding: 0 15px;
+.slick-slider{
+  -webkit-user-select: inherit !important;
+  -moz-user-select: inherit !important;
+  -ms-user-select: inherit !important;
+  user-select: inherit !important;
+  .slick-slide {
+    padding: 0 15px;
+  }
 }
